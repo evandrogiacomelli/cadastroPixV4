@@ -15,7 +15,7 @@ public class Main {
         String ag = "12345";
         String conta = "234567";
         String codigoBanco = "23456";
-        String valor = "TEST@TEST.COM";
+        String valor = "TEST4@TEST.COM";
         TipoConta tipoConta = TipoConta.CORRENTE;
         TipoChave tipoChave = TipoChave.EMAIL;
 
@@ -26,5 +26,8 @@ public class Main {
         local.save(chavePix);
         String reCreate = local.find(valor);
         System.out.println(ChavePixService.serviceCSV(reCreate));
+
+        local.delete("TEST3@TEST.COM");
+
     }
 }

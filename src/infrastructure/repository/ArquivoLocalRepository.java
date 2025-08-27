@@ -23,8 +23,8 @@ public class ArquivoLocalRepository implements ChavePixRepository {
     }
 
     @Override
-    public void delete(ChavePix chavePix) {
-
+    public void delete(String valor) {
+        util.deletarLinhaPorValor(valor);
     }
 
     @Override

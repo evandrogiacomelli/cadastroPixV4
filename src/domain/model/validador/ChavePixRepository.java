@@ -6,6 +6,6 @@ import domain.model.chavePix.TipoChave;
 
 public interface ChavePixRepository {
     void save(ChavePix chavePix);
-    void delete(ChavePix chavePix);
+    void delete(String valor);
     String find(String valor);
 }

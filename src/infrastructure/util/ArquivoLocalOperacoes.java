@@ -2,6 +2,7 @@ package infrastructure.util;
 
 import domain.model.chavePix.ChavePix;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,6 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class ArquivoLocalOperacoes {
 
@@ -63,6 +65,37 @@ public class ArquivoLocalOperacoes {
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new RuntimeException("Não foi possível escrever no arquivo. ");
+        }
+    }
+
+    public void deletarLinhaPorValor(String valor) {
+
+        Path arquivoTemporario = arquivo.resolveSibling("temp_" + nomeArquivo);
+
+        try (
+            Stream<String> linhas = Files.lines(arquivo);
+            BufferedWriter writer = Files.newBufferedWriter(arquivoTemporario)) {
+            linhas.filter(linha -> !linha.split(SEPARADOR)[5].equals(valor))
+                    .forEach(linha -> {
+                        try {
+                            writer.write(linha);
+                            writer.newLine();
+                        }
+                        catch (IOException e) {
+                            throw new RuntimeException("Repository, erro em escrita de arquivo temporario");
+                        }
+                    });
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Não foi possível deletar a linha do arquivo. ");
+        }
+
+        try {
+            Files.delete(arquivo);
+            Files.move(arquivoTemporario, arquivo);
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Erro na substituiçao após gravar arquivo temporário");
         }
     }
 
