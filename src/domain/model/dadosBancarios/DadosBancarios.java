@@ -1,4 +1,4 @@
-package domain.dadosBancarios;
+package domain.model.dadosBancarios;
 
 import java.util.Objects;
 

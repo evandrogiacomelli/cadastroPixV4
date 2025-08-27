@@ -1,4 +1,4 @@
-package domain.dadosBancarios;
+package domain.model.dadosBancarios;
 
 public enum TipoConta {
 
