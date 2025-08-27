@@ -9,14 +9,14 @@ public class Main {
 
         String cnpj = "12.345.678/0001-95";
 
-        String ag = null;
-        String conta = null;
-        String codigoBanco = null;
-        String valor = null;
-        TipoConta tipoConta = null;
-        TipoChave tipoChave = null;
+        String ag = "12345";
+        String conta = "234567";
+        String codigoBanco = "23456";
+        String valor = "12345678000195";
+        TipoConta tipoConta = TipoConta.CORRENTE;
+        TipoChave tipoChave = TipoChave.CNPJ;
 
         ChavePix chavePix = ChavePixService.service(ag, conta, codigoBanco, valor, tipoConta, tipoChave);
-        System.out.println(chavePix.toString());
+        System.out.println(chavePix);
     }
 }

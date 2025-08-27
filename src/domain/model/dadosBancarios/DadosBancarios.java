@@ -14,4 +14,14 @@ public record DadosBancarios(
        Objects.requireNonNull(codigoBanco, "Codigo do Banco não pode ser nulo.");
        Objects.requireNonNull(tipoConta, "Tipo da Conta não pode ser nula.");
    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "ag='" + ag + '\'' +
+                ", conta='" + conta + '\'' +
+                ", codigoBanco='" + codigoBanco + '\'' +
+                ", tipoConta=" + tipoConta +
+                '}';
+    }
 }

@@ -28,10 +28,10 @@ public class ChavePix {
     @Override
     public String toString() {
         return "ChavePix{" +
-                "tipo=" + tipo +
-                ", dadosBancarios=" + dadosBancarios +
-                ", valor=" + valor +
-                ", timeStamp=" + timeStamp +
-                '}';
+                "tipo='" + tipo +
+                "', dadosBancarios=" + dadosBancarios.toString() +
+                ", valor='" + valor.getValor() +
+                "', timeStamp='" + timeStamp.toString() +
+                "'}";
     }
 }
