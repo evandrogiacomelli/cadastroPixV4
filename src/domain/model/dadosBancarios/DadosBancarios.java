@@ -24,4 +24,26 @@ public record DadosBancarios(
                 ", tipoConta=" + tipoConta +
                 '}';
     }
+
+    @Override
+    public String ag() {
+        return ag;
+    }
+
+    @Override
+    public String conta() {
+        return conta;
+    }
+
+    @Override
+    public String codigoBanco() {
+        return codigoBanco;
+    }
+
+    @Override
+    public TipoConta tipoConta() {
+        return tipoConta;
+    }
+
+
 }

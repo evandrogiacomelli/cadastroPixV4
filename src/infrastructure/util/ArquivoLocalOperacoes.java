@@ -36,8 +36,15 @@ public class ArquivoLocalOperacoes {
     }
 
     public void escreverLinhas(ChavePix chavePix) {
-
-        String linha = chavePix + System.lineSeparator();
+        String linha = String.join(";",
+                chavePix.getTipo().toString(),
+                chavePix.getDadosBancarios().ag(),
+                chavePix.getDadosBancarios().conta(),
+                chavePix.getDadosBancarios().codigoBanco(),
+                chavePix.getDadosBancarios().tipoConta().toString(),
+                chavePix.getValor().getValor(),
+                chavePix.getTimeStamp().toString()
+        ) + System.lineSeparator();
 
         try {
             Files.write(arquivo, linha.getBytes(), StandardOpenOption.CREATE,

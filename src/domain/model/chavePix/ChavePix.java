@@ -25,6 +25,14 @@ public class ChavePix {
         return tipo;
     }
 
+    public DadosBancarios getDadosBancarios() {
+        return dadosBancarios;
+    }
+
+    public Timestamp getTimeStamp() {
+        return timeStamp;
+    }
+
     @Override
     public String toString() {
         return "ChavePix{" +
@@ -34,4 +42,6 @@ public class ChavePix {
                 "', timeStamp='" + timeStamp +
                 "'}";
     }
+
+
 }
