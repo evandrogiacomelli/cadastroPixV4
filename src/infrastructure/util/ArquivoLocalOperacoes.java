@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ArquivoLocalOperacoes {
 
+    private static final String SEPARADOR = ";";
     private final Path arquivo;
     private final String nomeArquivo;
 
@@ -35,8 +36,19 @@ public class ArquivoLocalOperacoes {
         }
     }
 
+    public String buscarLinhaPorValor(String valorBuscado) {
+        try {
+            return Files.lines(arquivo)                      // stream lazy, eficiente
+                    .filter(linha -> linha.split(SEPARADOR)[5].equals(valorBuscado))
+                    .findFirst()
+                    .orElse(null);                       // retorna null se não encontrou
+        } catch (IOException e) {
+            throw new RuntimeException("Não foi possível ler o arquivo", e);
+        }
+    }
+
     public void escreverLinhas(ChavePix chavePix) {
-        String linha = String.join(";",
+        String linha = String.join(SEPARADOR,
                 chavePix.getTipo().toString(),
                 chavePix.getDadosBancarios().ag(),
                 chavePix.getDadosBancarios().conta(),

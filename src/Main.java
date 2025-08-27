@@ -7,7 +7,7 @@ import infrastructure.repository.ArquivoLocalRepository;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
         String cnpj = "12.345.678/0001-95";
@@ -24,5 +24,7 @@ public class Main {
 
         ArquivoLocalRepository local = new ArquivoLocalRepository("data");
         local.save(chavePix);
+        String reCreate = local.find(valor);
+        System.out.println(ChavePixService.serviceCSV(reCreate));
     }
 }

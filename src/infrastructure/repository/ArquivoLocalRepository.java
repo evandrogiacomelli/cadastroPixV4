@@ -11,7 +11,6 @@ import java.util.List;
 
 public class ArquivoLocalRepository implements ChavePixRepository {
 
-    private static final String SEPARADOR = ";";
     private ArquivoLocalOperacoes util;
 
     public ArquivoLocalRepository(String diretorio) throws IOException {
@@ -29,7 +28,7 @@ public class ArquivoLocalRepository implements ChavePixRepository {
     }
 
     @Override
-    public ChavePix find(TipoChave tipo, ChaveValor valor) {
-        return null;
+    public String find(String valor) {
+        return util.buscarLinhaPorValor(valor);
     }
 }

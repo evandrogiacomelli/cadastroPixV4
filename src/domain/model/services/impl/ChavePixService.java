@@ -6,6 +6,7 @@ import domain.model.chavePix.TipoChave;
 import domain.model.dadosBancarios.DadosBancarios;
 import domain.model.dadosBancarios.TipoConta;
 import domain.model.validador.ChavePixFactory;
+import domain.model.validador.ChavePixRepository;
 import domain.model.validador.exception.ServiceException;
 
 import java.sql.Timestamp;
@@ -27,4 +28,10 @@ public class ChavePixService {
             throw new ServiceException("Service exception, ChavePix não pode ser criada.");
         }
     }
+
+    public static ChavePix serviceCSV(String valor) throws Exception{
+        return ChavePixFactory.reCriarCSV(valor);
+    }
+
+
 }
