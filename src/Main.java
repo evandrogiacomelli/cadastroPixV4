@@ -14,9 +14,9 @@ public class Main {
         String codigoBanco = "23456";
         String valor = "12345678000195";
         TipoConta tipoConta = TipoConta.CORRENTE;
-        TipoChave tipoChave = TipoChave.CNPJ;
+        TipoChave tipoChave = TipoChave.EMAIL;
 
-        ChavePix chavePix = ChavePixService.service(ag, conta, codigoBanco, valor, tipoConta, tipoChave);
+        ChavePix chavePix = ChavePixService.service(ag, conta, codigoBanco, "TEST@TEST", tipoConta, tipoChave);
         System.out.println(chavePix);
     }
 }

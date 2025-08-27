@@ -19,6 +19,7 @@ public class ChavePixFactory {
         switch (tipo){
             case TipoChave.CNPJ -> { return CNPJValidador.validar(valor); }
             case TipoChave.CPF -> { return CPFValidador.validar(valor); }
+            case TipoChave.EMAIL -> { return EMAILValidador.validar(valor); }
         }
         throw  new TimeStampException("não foi possivel gerar um TimeStamp, verifique o tipo da chave. ");
     }
