@@ -20,6 +20,10 @@ bin/
 *.iml
 *.iws
 
+data/
+*.chaves
+*.chaves.txt
+
 # Compiled class files
 *.class
 
