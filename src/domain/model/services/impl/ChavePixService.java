@@ -21,7 +21,7 @@ public class ChavePixService {
             Timestamp timeStamp = ChavePixFactory.validateAndStamp(valor, tipoChave);
             DadosBancarios dados = new DadosBancarios(ag, conta, codigoBanco, tipoConta);
             ChaveValor chaveValor = new ChaveValor(valor, timeStamp);
-            return new ChavePix(tipoChave, dados, chaveValor, timeStamp);
+            return ChavePixFactory.create(tipoChave, dados, chaveValor, timeStamp);
         }
         catch (ServiceException e) {
             throw new ServiceException("Service exception, ChavePix não pode ser criada.");

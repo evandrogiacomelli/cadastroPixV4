@@ -31,7 +31,7 @@ public class ChavePix {
                 "tipo='" + tipo +
                 "', dadosBancarios=" + dadosBancarios.toString() +
                 ", valor='" + valor.getValor() +
-                "', timeStamp='" + timeStamp.toString() +
+                "', timeStamp='" + timeStamp +
                 "'}";
     }
 }
