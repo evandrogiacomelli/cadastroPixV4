@@ -1,12 +1,13 @@
 package domain.model.chavePix;
 
-import java.sql.Timestamp;
+import java.util.UUID;
 
 public class ChaveValor {
     private final String valor;
 
-    public ChaveValor(String valor, Timestamp timeStamp) {
-        this.valor = valor;
+    public ChaveValor(String valor, TipoChave tipoChave) {
+        if (tipoChave == TipoChave.ALEATORIO) this.valor = UUID.randomUUID().toString();
+        else this.valor = valor;
     }
 
     public String getValor() {

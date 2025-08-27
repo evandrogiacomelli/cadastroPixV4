@@ -19,8 +19,8 @@ public class ChavePixService {
                             TipoConta tipoConta, TipoChave tipoChave) throws ServiceException {
         try {
             Timestamp timeStamp = ChavePixFactory.validateAndStamp(valor, tipoChave);
+            ChaveValor chaveValor = new ChaveValor(valor, tipoChave);
             DadosBancarios dados = new DadosBancarios(ag, conta, codigoBanco, tipoConta);
-            ChaveValor chaveValor = new ChaveValor(valor, timeStamp);
             return ChavePixFactory.create(tipoChave, dados, chaveValor, timeStamp);
         }
         catch (ServiceException e) {

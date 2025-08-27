@@ -8,6 +8,7 @@ import domain.model.validador.exception.TimeStampException;
 import domain.model.validador.impl.*;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 public class ChavePixFactory {
 
@@ -21,6 +22,7 @@ public class ChavePixFactory {
             case TipoChave.CPF -> { return new CPFValidador().validar(valor); }
             case TipoChave.EMAIL -> { return new EMAILValidador().validar(valor); }
             case TipoChave.TELEFONE -> { return new TELEFONEValidador().validar(valor); }
+            case TipoChave.ALEATORIO -> {return new Timestamp(System.currentTimeMillis()); }
         }
         throw  new TimeStampException("FACTORY ERROR: não foi possivel gerar um TimeStamp, verifique o tipo da chave. ");
     }
