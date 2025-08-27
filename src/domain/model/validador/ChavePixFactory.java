@@ -17,11 +17,12 @@ public class ChavePixFactory {
     public static Timestamp validateAndStamp(String valor, TipoChave tipo) throws TimeStampException {
 
         switch (tipo){
-            case TipoChave.CNPJ -> { return CNPJValidador.validar(valor); }
-            case TipoChave.CPF -> { return CPFValidador.validar(valor); }
-            case TipoChave.EMAIL -> { return EMAILValidador.validar(valor); }
+            case TipoChave.CNPJ -> { return new CNPJValidador().validar(valor); }
+            case TipoChave.CPF -> { return new CPFValidador().validar(valor); }
+            case TipoChave.EMAIL -> { return new EMAILValidador().validar(valor); }
+            case TipoChave.TELEFONE -> { return new TELEFONEValidador().validar(valor); }
         }
-        throw  new TimeStampException("não foi possivel gerar um TimeStamp, verifique o tipo da chave. ");
+        throw  new TimeStampException("FACTORY ERROR: não foi possivel gerar um TimeStamp, verifique o tipo da chave. ");
     }
 
     public static ChavePix create(TipoChave tipoChave, DadosBancarios dados,

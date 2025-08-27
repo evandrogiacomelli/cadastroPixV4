@@ -12,11 +12,11 @@ public class Main {
         String ag = "12345";
         String conta = "234567";
         String codigoBanco = "23456";
-        String valor = "12345678000195";
+        String valor = "(11)99965-4321";
         TipoConta tipoConta = TipoConta.CORRENTE;
-        TipoChave tipoChave = TipoChave.EMAIL;
+        TipoChave tipoChave = TipoChave.TELEFONE;
 
-        ChavePix chavePix = ChavePixService.service(ag, conta, codigoBanco, "TEST@TEST", tipoConta, tipoChave);
+        ChavePix chavePix = ChavePixService.service(ag, conta, codigoBanco, valor, tipoConta, tipoChave);
         System.out.println(chavePix);
     }
 }

@@ -9,7 +9,7 @@ public class CPFValidador implements ChavePixValidador {
 
     private static final String REGEX = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}";
 
-    public static Timestamp validar(String valor) throws ValidadorException {
+    public Timestamp validar(String valor) throws ValidadorException {
         if (valor.matches(REGEX)) return new Timestamp(System.currentTimeMillis());
         else throw new ValidadorException("CPF invalido: " + valor);
     }

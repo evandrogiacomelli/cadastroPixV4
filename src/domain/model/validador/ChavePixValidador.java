@@ -8,8 +8,6 @@ import java.sql.Timestamp;
 public interface ChavePixValidador {
 
 
-    static Timestamp validar(String valor) throws ValidadorException {
-        return null;
-    }
+    Timestamp validar(String valor) throws ValidadorException;
 
 }
