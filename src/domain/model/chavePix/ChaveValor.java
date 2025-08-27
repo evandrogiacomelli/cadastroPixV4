@@ -1,10 +1,22 @@
 package domain.model.chavePix;
 
-public class ChaveValor {
-    private String valor;
+import java.sql.Time;
+import java.sql.Timestamp;
 
-    public ChaveValor() {
+public class ChaveValor {
+    private final String valor;
+    private final Timestamp timeStamp;
+
+    public ChaveValor(String valor, Timestamp timeStamp) {
         this.valor = valor;
+        this.timeStamp = timeStamp;
+    }
+
+    public String getValor() {
+        return this.valor;
+    }
+    public Timestamp getTimeStamp() {
+        return this.timeStamp;
     }
 
 }
